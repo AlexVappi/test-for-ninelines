@@ -1,0 +1,16 @@
+footer.footer
+
+.js-back-to-top.backTop.show-in.first-load__show
+	svg.backTop__progress(viewbox="0 0 48 48")
+		circle(cx="50%" cy="50%" r="23" stroke-width="2")
+	.backTop__percents 0%
+	+svg('arrow').backTop__arrow
+
+.popup.popup-overlay#shareData
+	.popup__body
+		svg.popup__close.js-popup-close(viewbox="0 0 50 50")
+			path(d="m 2 2 L 48 48")
+			path(d="m 2 48 L 48 2")
+		input.field.js-input-share-title(type="text" placeholder="Имя кандидата, Желаемая позиция")
+		textarea.field.field-textarea.js-input-share-description(placeholder="О себе")
+		button.btn.js-share-change-btn.js-popup-close(type="button") Да будет так

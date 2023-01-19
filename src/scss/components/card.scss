@@ -1,0 +1,44 @@
+
+.card {
+	margin-bottom: 60px;
+
+	&__date {
+		color: #828282;
+	}
+
+	&__title {
+		position: relative;
+		margin: 5px 0;
+		font-weight: 700;
+	}
+
+	&__desc {
+		margin-bottom: 6px;
+	}
+
+	&__logo {
+		vertical-align: 15px;
+		margin-right: 8px;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+	}
+
+	&__company {
+		margin-right: 8px;
+		font-weight: 700;
+	}
+
+	&__link {
+		border-bottom: 1px solid currentColor;
+		color: #2f80ed;
+
+		@include hover {
+			color: currentColor;
+		}
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

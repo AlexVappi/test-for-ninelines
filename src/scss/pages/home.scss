@@ -1,0 +1,174 @@
+// .home {
+// 	padding: 80px 20px;
+
+// 	&__picture {
+// 		display: block;
+// 		margin: 0 auto 40px;
+// 		max-width: 500px;
+// 		opacity: 0;
+// 		transition: $duration-normal;
+
+// 		&[data-loaded="true"] {
+// 			opacity: 1;
+// 		}
+
+// 		&--2 {
+// 			margin-top: 40px;
+// 			margin-bottom: 0;
+// 		}
+// 	}
+
+// 	&__text {
+// 		margin: 0 auto;
+// 		max-width: 500px;
+// 		font-size: 20px;
+// 		line-height: 26px;
+
+// 		a {
+// 			text-decoration: underline;
+
+// 			@include hover {
+// 				text-decoration: none;
+// 			}
+// 		}
+
+// 		code {
+// 			padding: 5px;
+// 			background-color: $color-gray;
+// 		}
+// 	}
+
+// 	@include desktop {
+// 		padding: 100px 0;
+// 	}
+// }
+.section {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.title {
+	margin-bottom: 30px;
+	font-size: 36px;
+}
+
+.section__title {
+	margin-bottom: 28px;
+	font-size: 24px;
+}
+
+.section__desc {
+	margin-bottom: 16px;
+}
+
+.title,
+.section__title {
+	margin-top: 0;
+	font-weight: 700;
+}
+
+.flex-line {
+	display: flex;
+	align-items: center;
+}
+
+.show-in {
+	opacity: 0;
+	visibility: hidden;
+	transition: $duration-normal * 2;
+
+	&.first-load__show {
+		.loaded & {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	@include active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.show-up {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(100px);
+	transition: $duration-normal * 2;
+
+	&.first-load__show {
+		.loaded & {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+	}
+
+	@include active {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+}
+
+@include desktop {
+	.flex-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.flex-container__left {
+		width: 560px;
+		min-width: 560px;
+	}
+
+	.flex-container__right {
+		width: 270px;
+		min-width: 270px;
+	}
+}
+
+@include devices {
+	.flex-container__left {
+		margin-bottom: 30px;
+	}
+
+	.flex-container__right {
+		margin-top: 30px;
+	}
+
+	.section {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+}
+
+@include mobile {
+	.flex-container__left {
+		margin-bottom: 20px;
+	}
+
+	.flex-container__right {
+		margin-top: 20px;
+	}
+
+	.title {
+		margin-bottom: 20px;
+		font-size: 28px;
+	}
+
+	.section__title {
+		margin-bottom: 20px;
+		font-size: 20px;
+	}
+
+	.section {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+@import "sections/section-intro";
+@import "sections/section-about";
+@import "sections/section-skills";
+@import "sections/section-heart";

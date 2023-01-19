@@ -1,0 +1,52 @@
+$purple: ("border": #ccc9fd, "light": #afaafe, "dark": #928cf8);
+$yellow: ("border": #fff3b5, "light": #ffe975, "dark": #ffcd3d);
+$blue: ("border": #c0f0ff, "light": #79cafb, "dark": #4bbef2);
+$pink: ("border": #ff99be, "light": #fe74a6, "dark": #ee5087);
+$orange: ("border": #ffd5b4, "light": #ffbc89, "dark": #ffa25a);
+$green: ("border": #7cf5d2, "light": #66dfbc, "dark": #3dc39b);
+
+.tag {
+	display: inline-block;
+	border: 4px solid;
+	border-radius: 8px;
+	width: 30px;
+	height: 30px;
+	transform: rotate(-45deg);
+
+	&_small {
+		border: none;
+		border-radius: 2px;
+		width: 12px;
+		height: 12px;
+	}
+
+	&_purple {
+		border-color: map-get($purple, "border");
+		background: linear-gradient(135deg, map-get($purple, "light") 50%, map-get($purple, "dark") 50%);
+	}
+
+	&_yellow {
+		border-color: map-get($yellow, "border");
+		background: linear-gradient(135deg, map-get($yellow, "light") 50%, map-get($yellow, "dark") 50%);
+	}
+
+	&_blue {
+		border-color: map-get($blue, "border");
+		background: linear-gradient(135deg, map-get($blue, "light") 50%, map-get($blue, "dark") 50%);
+	}
+
+	&_pink {
+		border-color: map-get($pink, "border");
+		background: linear-gradient(135deg, map-get($pink, "light") 50%, map-get($pink, "dark") 50%);
+	}
+
+	&_orange {
+		border-color: map-get($orange, "border");
+		background: linear-gradient(135deg, map-get($orange, "light") 50%, map-get($orange, "dark") 50%);
+	}
+
+	&_green {
+		border-color: map-get($green, "border");
+		background: linear-gradient(135deg, map-get($green, "light") 50%, map-get($green, "dark") 50%);
+	}
+}

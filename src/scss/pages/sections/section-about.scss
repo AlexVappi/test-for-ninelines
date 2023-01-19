@@ -1,0 +1,107 @@
+.section-about__center {
+	text-align: center;
+}
+
+.skills-list__card {
+	text-align: center;
+}
+
+@include desktop {
+	.section-about__picture {
+		position: sticky;
+		top: 100px;
+	}
+
+	.section-about__right {
+		text-align: center;
+	}
+}
+
+.jobs-list__title {
+	margin-right: 12px;
+}
+
+$maxCount: 3;
+
+.jobs-list__tag {
+	position: relative;
+	display: inline-block;
+
+	@for $i from 0 through $maxCount - 1 {
+		&:nth-child(#{$i + 1}) {
+			left: -#{$i * 6px};
+			z-index: -$i;
+		}
+	}
+}
+
+.skills-list__tags {
+	position: relative;
+}
+
+.skills-list__tag {
+	&:not(:first-child) {
+		position: absolute;
+		top: 7px;
+		z-index: -1;
+		margin-left: -8px;
+		border-width: 3px;
+		border-radius: 4px;
+		width: 15px;
+		height: 15px;
+	}
+
+	@for $i from 2 through $maxCount {
+		$sign: 1;
+
+		@if ($i % 2 == 0) {
+			$sign: -1;
+		}
+
+		/* stylelint-disable-next-line order/order */
+		&:nth-child(#{$i}) {
+			left: calc(50% - #{$sign * 20px});
+		}
+	}
+}
+
+.skills-list__desc {
+	margin: 0 auto;
+	width: 150px;
+}
+
+.section-about__figure {
+	position: absolute;
+	left: -7px;
+	bottom: -283px;
+	z-index: -1;
+	width: 101%;
+	height: auto;
+	transition: $duration-normal * 2;
+}
+
+@include devices {
+	.section-about__picture {
+		width: 300px;
+	}
+
+	.section-about__right {
+		text-align: left;
+	}
+
+	.skills-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@include mobile {
+	.section-about__picture {
+		margin: 40px 0;
+		width: 170px;
+	}
+
+	.section-about__figure {
+		bottom: -123px;
+	}
+}

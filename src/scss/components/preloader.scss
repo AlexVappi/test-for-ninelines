@@ -1,0 +1,18 @@
+.preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 4010;
+	width: 100vw;
+	height: 100vh;
+	background-color: $color-white;
+
+	&__picture {
+		position: absolute;
+		right: 100%;
+		top: 90%;
+		width: 30vw;
+		max-width: 591px;
+		transform: translate(0, 0);
+	}
+}

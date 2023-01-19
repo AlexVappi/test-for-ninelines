@@ -1,0 +1,89 @@
+main.home
+	section.section.section-intro#intro
+		.container
+			.flex-container
+				.flex-container__left
+					h1.title.show-up.first-load__show.js-share-title !{data.home.title}
+					.section__desc.show-up.first-load__show.js-share-desc(style="transition-delay: 0.1s")
+						p #{data.home.description}
+					button.btn.show-up.first-load__show(data-popup="#shareData" style="transition-delay: 0.2s") Редактировать
+				.flex-container__right.show-up.first-load__show(style="transition-delay: 0.5s")
+					p
+						a.default-link(href="mailto:"+data.home.mail) #{data.home.mail}
+					p
+						a.default-link(href="tel:" + data.home.trimPhone) #{data.home.phone}
+					p
+						a.default-link(href=data.home.city.link target="_blank") #{data.home.city.name}
+					p.flex-line
+						each social in data.home.share
+							a.social-link(data-social=social)
+								+svg(social).svg-icon
+
+			img.section-intro__figure.is-desktop.is-tablet(src=`${baseDir}images/fig-1.png` alt="intro-fig" style="transition-delay: 0.5s")
+			img.section-intro__figure.is-mobile(src=`${baseDir}images/fig-1-mob.png` alt="intro-fig" style="transition-delay: 0.5s")
+
+	section.section.section-about#about
+		.container.flex-container
+			.flex-container__left
+				.section__title Опыт работы
+				.jobs-list
+					each job in data.about.jobs
+						.card.jobs-list__card
+							.card__date #{job.date}
+							.flex-line
+								.card__title.jobs-list__title
+									| #{job.position}
+								.card__tags
+									each tag in job.tags
+										.tag.tag_small.jobs-list__tag(class="tag_"+tag)
+							.card__desc
+								- if (job.company.logo)
+									+lazyPicture({
+										src: `${baseDir}${job.company.logo}`,
+										alt: job.company.name,
+									}).card__logo
+								- if (job.company.name)
+									span.card__company #{job.company.name}
+								| #{job.location}
+							.card__desc
+								| #{job.description}<br>
+								- if (job.links)
+									each link in job.links
+										a.card__link(href=link.link) #{link.text} <br>
+
+			.section-about__center.show-up.show-observed
+				+lazyPicture({
+					src: `${baseDir}images/dude.png`,
+					alt: "dude",
+				}).section-about__picture(data-m-parallax data-perspective="true")
+
+			.flex-container__right.section-about__right
+				.section__title Образование
+				.skills-list
+					each educ in data.about.educ
+						.card.skills-list__card
+							.skills-list__tags
+								each tag in educ.tags
+									.tag.skills-list__tag(class="tag_"+tag)
+							.card__title !{educ.title}
+							.card__desc.skills-list__desc !{educ.place}
+			img.section-about__figure.is-desktop.is-tablet(src=`${baseDir}images/fig-2.png` alt="about-fig")
+			img.section-about__figure.is-mobile(src=`${baseDir}images/fig-2-mob.png` alt="about-fig")
+
+	section.section.section-skills#skills
+		.container
+			.section__title Навыки
+			.section-skills__container
+				each skill, i in data.skills
+					.card.section-skills__card.show-observed.show-up(style="transition-delay:" + i/4 + "s;")
+						.card__title #{skill.title}
+						.card__desc #{skill.desc}
+
+	section.section.section-heart
+		.container
+			+lazyImage({
+				src: `${baseDir}images/heart.png`,
+				srcset: `${baseDir}images/heart@2x.png`,
+				alt: "heart",
+				appear: false,
+			}).section-heart__picture.show-observed.show-up

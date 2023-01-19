@@ -1,0 +1,17 @@
+@include desktop {
+	.section-skills__container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
+	}
+}
+
+.section-skills__card {
+	margin-bottom: 0;
+}
+
+@include mobile {
+	.section-skills__card {
+		margin-bottom: 20px;
+	}
+}
